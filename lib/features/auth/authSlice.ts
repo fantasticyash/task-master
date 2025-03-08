@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
@@ -78,6 +77,7 @@ export const login = createAsyncThunk(
       );
 
       return userData;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Login failed. Please try again.");
     }
@@ -132,6 +132,7 @@ export const register = createAsyncThunk(
       );
 
       return newUserData;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Registration failed. Please try again.");
     }
@@ -150,6 +151,7 @@ export const checkAuth = createAsyncThunk(
 
       const { user } = JSON.parse(auth);
       return user;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Authentication check failed");
     }
@@ -163,6 +165,7 @@ export const logout = createAsyncThunk(
       // Remove auth from localStorage
       localStorage.removeItem("auth");
       return null;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Logout failed");
     }
@@ -211,6 +214,7 @@ export const updateUser = createAsyncThunk(
       );
 
       return updatedUser;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Failed to update user profile");
     }
