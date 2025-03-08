@@ -149,6 +149,7 @@ export const checkAuth = createAsyncThunk(
 
       const { user } = JSON.parse(auth);
       return user;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Authentication check failed");
     }
