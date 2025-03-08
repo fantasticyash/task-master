@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "@/lib/store";
+import type { AppDispatch, RootState } from "@/lib/store";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -35,21 +35,18 @@ import TaskInput from "./task-input";
 import UserProfile from "./user-profile";
 
 export default function Dashboard() {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.auth);
   const { tasks } = useSelector((state: RootState) => state.tasks);
-  const { data: weather, loading: weatherLoading } = useSelector(
-    (state: RootState) => state.weather
-  );
   const [searchQuery, setSearchQuery] = useState("");
   const [showUserProfile, setShowUserProfile] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchWeather() as any);
+    dispatch(fetchWeather());
   }, [dispatch]);
 
   const handleLogout = () => {
-    dispatch(logout() as any);
+    dispatch(logout());
   };
 
   const highPriorityTasks = tasks.filter((task) => task.priority === "high");
