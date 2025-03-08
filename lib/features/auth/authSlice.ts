@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
@@ -149,7 +150,6 @@ export const checkAuth = createAsyncThunk(
 
       const { user } = JSON.parse(auth);
       return user;
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return rejectWithValue("Authentication check failed");
     }
